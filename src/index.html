@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function handleChange(checkbox) {
+      if (checkbox.checked) {
+        document.getElementById("temperature").style.display = "flex";
+      } else {
+        document.getElementById("temperature").style.display = "none";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="page order-page">
+    <div class="page__container">
+      <div class="page__content">
+        <div class="page__title">
+          <span>FTL: Прямая машина</span>
+        </div>
+        <section class="page__section section">
+          <div class="section__row">
+            <div class="section__header">
+              <div class="section__number section-number">
+                <span>1</span>
+              </div>
+              <div class="section__title">
+                <span>Маршрут</span>
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block input-component">
+              <div class="input-component__input-label">
+                <span>Откуда</span>
+              </div>
+              <div class="input-component__input-wrapper">
+                <input class="input-component__input custom-input" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block input-component">
+              <div class="input-component__input-label">
+                <span>Куда</span>
+              </div>
+              <div class="input-component__input-wrapper">
+                <input class="input-component__input custom-input" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="page__comment page__comment--desktop page-comment">
+            Для расчета стоимости необходимо ввести параметры груза, пункты
+            отправки и прибытия.
+          </div>
+        </section>
+        <section class="page__section section">
+          <div class="section__row">
+            <div class="section__header">
+              <div class="section__number section-number">
+                <span>2</span>
+              </div>
+              <div class="section__title">
+                <span>Транспорт</span>
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                <span>Грузоподъёмность</span>
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбрана" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">до 1 тонны</option>
+                  <option value="2">до 2 тонн</option>
+                  <option value="5">до 5 тонн</option>
+                  <option value="10">до 10 тонн</option>
+                </select>
+              </div>
+            </div>
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                <span>Способ погрузки</span>
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбран" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">ручками</option>
+                  <option value="2">звонок другу</option>
+                  <option value="5">погрузчик</option>
+                  <option value="10">кран</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page__section section">
+          <div class="section__row">
+            <div class="section__header">
+              <div class="section__number section-number">
+                <span>3</span>
+              </div>
+              <div class="section__title">
+                <span>Груз</span>
+              </div>
+            </div>
+          </div>
+          <div class="section__row section__row">
+            <div class="section__block section__block--middle input-component">
+              <div class="input-component__input-label">
+                <span>Тип груза</span>
+              </div>
+              <div class="input-component__input-wrapper">
+                <input class="input-component__input custom-input" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                Класс опасности
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбрана" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">до 1 тонны</option>
+                  <option value="2">до 2 тонн</option>
+                  <option value="5">до 5 тонн</option>
+                  <option value="10">до 10 тонн</option>
+                </select>
+              </div>
+            </div>
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                Объявленная ценность, ₽
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбран" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">ручками</option>
+                  <option value="2">звонок другу</option>
+                  <option value="5">погрузчик</option>
+                  <option value="10">кран</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="control-group">
+              <label class="control control-checkbox input-component__checkbox-label">
+                Требуется температурный режим
+                <input type="checkbox" onchange='handleChange(this);' />
+                <div class="control_indicator"></div>
+              </label>
+            </div>
+          </div>
+          <div class="section__row" style="display:none" id="temperature">
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                От, °C
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбрана" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">до 1 тонны</option>
+                  <option value="2">до 2 тонн</option>
+                  <option value="5">до 5 тонн</option>
+                  <option value="10">до 10 тонн</option>
+                </select>
+              </div>
+            </div>
+            <div class="section__block section__block--small input-component">
+              <div class="input-component__input-label">
+                До, °C
+              </div>
+              <div class="input-component__input-wrapper">
+                <select placeholder="не выбран" class="input-component__input custom-input">
+                  <option value="default"></option>
+                  <option value="1">ручками</option>
+                  <option value="2">звонок другу</option>
+                  <option value="5">погрузчик</option>
+                  <option value="10">кран</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page__section section">
+          <div class="section__row">
+            <div class="section__header">
+              <div class="section__number section-number">
+                <span>4</span>
+              </div>
+              <div class="section__title">
+                <span>Время</span>
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block input-component">
+              <div class="input-component__input-label">
+                <span>Когда прибыть на точку</span>
+                <span class="input-component__comment">700 км в день</span>
+              </div>
+              <div class="input-component__input-wrapper input-component__input-wrapper--dark">
+                <div class="input-component__cicle cicle cicle--red"></div>
+                <div class="input-component__output">
+                  <span>Длинный адрес с градиентом</span>
+                  <span class="input-component__fade-out"></span>
+                </div>
+                <button class="input-component__button custom-button">НЕ ВЫБРАНО</button>
+              </div>
+              <div class="input-component__input-wrapper input-component__input-wrapper--dark">
+                <div class="input-component__cicle cicle cicle--white"></div>
+                <div class="input-component__output">
+                  <span>Адрес не указан</span>
+                </div>
+                <button class="input-component__button custom-button custom-button--disabled">НЕ ВЫБРАНО</button>
+              </div>
+            </div>
+          </div>
+          <div class="section__row">
+            <div class="section__block input-component">
+              <div class="input-component__input-label">
+                <span>Комментарий к заказу</span>
+              </div>
+              <div class="input-component__input-wrapper input-component__input-wrapper--textarea">
+                <textarea style="resize: none" class="input-component__input custom-input" type="textarea"
+                  placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу"
+                  rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page__comment page__comment--mobile page-comment">
+          Для расчета стоимости необходимо ввести параметры груза, пункты
+          отправки и прибытия.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

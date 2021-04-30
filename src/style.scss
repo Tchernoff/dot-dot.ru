@@ -1,0 +1,356 @@
+/*
+* COLORS
+*/
+
+// background colors
+$white-background: #fff;
+$page-background:#343539;
+$secondary-background: #4B4B4F;
+$accent-background: #EF483E;
+
+// font colors
+$primary-font-color: #fff;
+$secondary-font-color: #CFCFCF;
+$input-font-color: #000;
+
+// custom button colors
+$button-background: #717174;
+$disabled-button-background: #717174;  // + opacity: 0.3
+
+
+/*
+* TYPOGRAPHY
+*/
+
+$primary-font-family: "Helvetica Neue", Helvetica, sans-serif;
+
+@mixin page-title-font-style {
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 68px;
+  color: $primary-font-color;
+
+  @media screen and (max-width: 767px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+@mixin page-comment-font-style {
+  font-size: 15px;
+  line-height: 18px;
+  color: $primary-font-color;
+}
+
+@mixin section-number-font-style {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 17px;
+  color: $primary-font-color;
+}
+
+@mixin section-title-font-style {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: $primary-font-color;
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@mixin label-font-style {
+  font-size: 13px;
+  line-height: 16px;
+  color: $primary-font-color;
+}
+
+@mixin comment-font-style {
+  font-size: 13px;
+  line-height: 16px;
+  color: $primary-font-color;
+}
+
+@mixin input-font-style {
+  font-size: 15px;
+  line-height: 18px;
+  color: $input-font-color;
+}
+
+@mixin placeholder-font-style {
+  font-size: 15px;
+  line-height: 18px;
+  color: $secondary-font-color;
+}
+
+@mixin button-font-style {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: $primary-font-color;
+}
+
+.select-dropdown-font {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+body {
+  background-color: $page-background;
+  font-family: $primary-font-family;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+/*
+* PAGE STRUSTURE
+*/
+
+.page {
+
+  &__container {
+    padding: 0 0 0 167px;
+    max-width: 728px;
+
+    @media screen and (max-width: 1024px) {
+      padding: 0 40px;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding: 0 16px;
+    }
+  }
+
+  &__title {
+    padding: 40px 0 22px;
+    // typography
+    @include page-title-font-style;
+  }
+
+  &__section {
+    padding-bottom: 40px;
+  }
+
+  &__comment {
+
+    &--desktop {
+      position: absolute;
+      top: 0;
+      right: -368px;
+
+      @media screen and (max-width: 1280px) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      margin-bottom: 37px;
+
+      @media screen and (min-width: 1280px) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+/*
+* SECTION STRUSTURE
+*/
+
+.section {
+  position: relative;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    & + & {
+      padding-top: 16px;
+    }
+  }
+
+  &__block {
+    width: 100%;
+
+    &--small {
+      width: 172px;
+    }
+
+    &--middle {
+      width: 357px;
+    }
+
+    & + & {
+      margin-left: 12px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__number {
+    margin-right: 8px;
+  }
+
+  &__title {
+    // typography
+    @include section-title-font-style;
+  }
+}
+
+/*
+* COMPONENTS
+*/
+
+.section-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  background-color: $accent-background;
+  border-radius: 15px;
+  // typography
+  @include section-number-font-style;
+}
+
+.input-component {
+
+  &__input-label {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    // typography
+    @include label-font-style;
+  }
+
+  &__comment {
+    // typography
+    color: $secondary-font-color;
+  }
+
+  &__checkbox-label {
+    // typography
+    @include label-font-style;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 10px 0 14px;
+    background-color: $white-background;
+
+    & + & {
+      margin-top: 4px;
+    }
+
+    &--dark {
+      background-color: $secondary-background;
+
+      input {
+        background-color: transparent;
+        color: $secondary-font-color;
+      }
+    }
+
+    &--textarea {
+      height: 80px;
+    }
+  }
+
+  &__cicle {
+    margin-right: 8px;
+  }
+
+  &__input {
+    padding: 0;
+  }
+
+  &__output {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    //typography
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    @include placeholder-font-style;
+  }
+
+  &__fade-out {
+    position: absolute;
+    right: -15px;
+    height: 100%;
+    width: 50px;
+    z-index: 1;
+    background-image: linear-gradient(to right, transparent , #4B4B4F, #4B4B4F);
+  }
+}
+
+.custom-input {
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  //typography
+  font: inherit;
+  @include input-font-style;
+
+  &::placeholder {
+    //typography
+    @include placeholder-font-style;
+  }
+}
+
+.cicle {
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  border-radius: 10px;
+  
+  &--red {
+    border: 4px solid $accent-background;
+  }
+
+  &--white {
+    border: 4px solid $white-background;
+  }
+}
+
+.custom-button {
+  cursor: pointer;
+  min-width: 119px;
+  height: 24px;
+  border: none;
+  background-color: #717174;
+  border-radius: 2px;
+  // typography
+  white-space: nowrap;
+  @include button-font-style;
+  color: $primary-font-color;
+
+  &--disabled {
+    opacity: 0.3;
+  }
+}
+
+.page-comment {
+  max-width: 356px;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: $secondary-background;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  //typography
+  @include page-comment-font-style;
+}
